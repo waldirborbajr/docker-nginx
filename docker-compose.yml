@@ -7,6 +7,7 @@ services:
         ports:
             - ${PORT_APACHE}:80
         volumes:
+#            - ./home/dan/Docker-Jenkins/data/jenkins_home/workspace:/usr/share/nginx/html
             - ./www/${PROJECT}:/usr/share/nginx/html
             - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
         restart: always
@@ -15,6 +16,7 @@ services:
             context: bin/php
         container_name: ${CONTAINER_NAME}docker_php_nginx
         volumes:
+#            - ./home/dan/Docker-Jenkins/data/jenkins_home/workspace:/usr/share/nginx/html
             - ./www/${PROJECT}:/usr/share/nginx/html
             - ./config/php/php.ini:/usr/local/etc/php/php.ini
         restart: always
