@@ -6,3 +6,5 @@ data/mysql/*
 www/*
 !www/.gitkeep
 !www/src/*
+
+logs/nginx/*
