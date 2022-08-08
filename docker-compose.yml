@@ -5,10 +5,14 @@ services:
             context: bin/nginx
         container_name: ${CONTAINER_NAME}nginx
         ports:
-            - ${PORT_APACHE}:80
+            - ${PORT_NGINX}:80
         volumes:
             - ./www/${PROJECT}:/usr/share/nginx/html
             - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./logs/nginx/error.log:/var/log/nginx/error.log
+            - ./logs/nginx/access.log:/var/log/nginx/access.log
+        links:
+            - php
     php:
         build:
             context: bin/php
@@ -21,7 +25,7 @@ services:
             context: bin/redis
         container_name: ${CONTAINER_NAME}redis
         depends_on:
-            -  php
+            - php
     mysql:
         build:
             context: bin/mysql
