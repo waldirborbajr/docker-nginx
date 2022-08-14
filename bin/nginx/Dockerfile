@@ -1,2 +1,2 @@
-FROM nginx:stable
+FROM nginx
 WORKDIR /usr/share/nginx/html
