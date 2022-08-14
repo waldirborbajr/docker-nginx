@@ -4,8 +4,7 @@ data/mysql/*
 !data/mysql/.gitkeep
 
 www/*
-!www/.gitkeep
-!www/src/*
+!www/server/
 
 logs/nginx/*
 logs/mysql/*
