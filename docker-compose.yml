@@ -12,6 +12,7 @@ services:
             - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
             - ./logs/nginx/error.log:/var/log/nginx/error.log
             - ./logs/nginx/access.log:/var/log/nginx/access.log
+        restart: always
     php:
         build:
             context: bin/php
@@ -19,12 +20,14 @@ services:
         volumes:
             - ./www/${PROJECT}:/usr/share/nginx/html
             - ./config/php/php.ini:/usr/local/etc/php/php.ini
+        restart: always
     redis:
         build:
             context: bin/redis
         container_name: ${CONTAINER_NAME}redis
         depends_on:
             - php
+        restart: always
     mysql:
         build:
             context: bin/mysql
@@ -38,3 +41,4 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
+        restart: always
