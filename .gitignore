@@ -6,6 +6,5 @@ data/mysql/*
 www/*
 !www/server/
 
-logs/nginx/*
-logs/mysql/*
+logs/*
 .DS_Store
